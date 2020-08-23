@@ -1,0 +1,9 @@
+@import './../../styles/_variables.scss';
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-color: $color__system__background--overlay;
+  z-index: 100;
+  position: absolute;
+}

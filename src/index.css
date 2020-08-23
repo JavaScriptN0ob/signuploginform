@@ -1,13 +1,12 @@
 body {
+  font-family: 'Roboto','Helvetica Neue',Helvetica,Arial,Lucida Grande,sans-serif;
+  font-weight: 400;
+  color: #292b32;
+  background-color: #f6f8fd;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: subpixel-antialiased;
+  font-size: 14px;
+  line-height: 1.4;
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
 }
