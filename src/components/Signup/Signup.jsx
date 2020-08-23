@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
-import styles from './Login.module.scss';
+import styles from './Signup.module.scss';
 
 import Modal from './../Modal';
 import FormInput from './../FormInput';
 import Button from './../Button';
 
-const Login = () => {
+const Signup = () => {
   const [form, setForm] = useState({
     email: '',
     password: '',
@@ -25,7 +25,7 @@ const Login = () => {
   }, [form]);
 
   return (
-    <Modal heading="Log in">
+    <Modal heading="Sign up">
       <div className={styles.conatiner}>
         <FormInput
           label="Email"
@@ -41,10 +41,10 @@ const Login = () => {
           placeholder="Password"
           handleChange={handleChange}
         />
-        <Button>Log in</Button>
+        <Button>Sign up</Button>
       </div>
     </Modal>
   );
 }
 
-export default Login;
+export default Signup;

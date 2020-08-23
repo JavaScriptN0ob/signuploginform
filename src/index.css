@@ -10,3 +10,14 @@ body {
   padding: 0;
   margin: 0;
 }
+
+textarea:focus,
+textarea:enabled,
+textarea:hover,
+textarea:active,
+input:focus,
+input:enabled,
+input:hover,
+input:active {
+  outline: none;
+}

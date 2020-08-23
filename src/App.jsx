@@ -5,6 +5,7 @@ import './App.css';
 
 import Overlay from './components/Overlay';
 import Login from './components/Login';
+import Signup from './components/Signup';
 
 function App() {
   return (
@@ -23,7 +24,8 @@ function App() {
             Learn React
           </a>
           <Overlay>
-            <Login />
+            {/* <Login /> */}
+            <Signup />
           </Overlay>
         </header>
     </div>
