@@ -1,11 +1,17 @@
 import React from 'react';
 
 import styles from './Button.module.scss';
+import classNames from 'classnames/bind';
 
-const Button = ({children, handleSubmit, ...otherProps}) => {
+const cx = classNames.bind(styles);
+
+const Button = ({children, handleSubmit, isGoogle, ...otherProps}) => {
   return (
     <button
-      className={styles.button}
+      className={cx({
+        button: true,
+        google: isGoogle,
+      })}
       onClick={handleSubmit}
     >
       {children}

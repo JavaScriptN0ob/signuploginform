@@ -22,14 +22,19 @@ const Login = () => {
     });
   }
 
-  const onLogin = (e) => {
+  const onLoginWithEmail = (e) => {
     e.preventDefault();
     const {email, password} = form;
     auth.signInWithEmailAndPassword(email, password);
   }
 
+  const onLoginWithGoogle = (e) => {
+    e.preventDefault();
+    signInWithGoogle();
+  }
+
   useEffect(() => {
-    console.log(form)
+    console.log(form);
   }, [form]);
 
   return (
@@ -51,7 +56,9 @@ const Login = () => {
             handleChange={handleChange}
           />
           {/* <button onClick={signInWithGoogle}>Google</button> */}
-          <Button handleSubmit={onLogin}>Log in</Button>
+          <Button handleSubmit={onLoginWithEmail}>Log in</Button>
+          <div className={styles.seperator}>or log in with</div>
+          <Button handleSubmit={onLoginWithGoogle} isGoogle>Google</Button>
         </div>
       </Modal>
     </Overlay>

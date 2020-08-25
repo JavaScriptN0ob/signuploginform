@@ -35,8 +35,8 @@ const App = () => {
 
   return (
     <div className="App">
-      {/* <Login /> */}
-      <Signup />
+      <Login />
+      {/* <Signup /> */}
         {/* {
           currentUser ? <Home userEmail={userEmail} /> : <Login />
         } */}
