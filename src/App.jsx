@@ -1,33 +1,45 @@
-import React from 'react';
+import React, { useState, useEffect  } from 'react';
+import fire from './config/fire';
+// import app from 'firebase/app';
+
 
 import logo from './logo.svg';
 import './App.css';
 
-import Overlay from './components/Overlay';
-import Login from './components/Login';
+// import Login from './components/Login';
 import Signup from './components/Signup';
+import Home from './components/Home';
 
-function App() {
+const App = () => {
+  const [user, setUser] = useState({
+    user: null,
+  });
+
+  // const authListener = () => {
+  //   fire.auth().onAuthStateChanged((user) => {
+  //     console.log(user);
+  //     if (!user) {
+  //       setUser({
+  //         user: null
+  //       });
+  //     }
+  //     setUser({user});
+  //   })
+  // }
+
+  // useEffect(() => {
+  //   authListener();
+  // }, [user]);
+
   return (
     <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          <Overlay>
-            {/* <Login /> */}
-            <Signup />
-          </Overlay>
-        </header>
+      <div className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <Signup />
+      </div>
+        {/* {
+          user ? <Home /> : <Signup />
+        } */}
     </div>
   );
 }

@@ -5,6 +5,7 @@ import styles from './Login.module.scss';
 import Modal from './../Modal';
 import FormInput from './../FormInput';
 import Button from './../Button';
+import Overlay from './../Overlay';
 
 const Login = () => {
   const [form, setForm] = useState({
@@ -25,25 +26,27 @@ const Login = () => {
   }, [form]);
 
   return (
-    <Modal heading="Log in">
-      <div className={styles.conatiner}>
-        <FormInput
-          label="Email"
-          name="email"
-          type="email"
-          placeholder="Email"
-          handleChange={handleChange}
-        />
-        <FormInput
-          label="Password"
-          name="password"
-          type="password"
-          placeholder="Password"
-          handleChange={handleChange}
-        />
-        <Button>Log in</Button>
-      </div>
-    </Modal>
+    <Overlay>
+      <Modal heading="Log in">
+        <div className={styles.conatiner}>
+          <FormInput
+            label="Email"
+            name="email"
+            type="email"
+            placeholder="Email"
+            handleChange={handleChange}
+          />
+          <FormInput
+            label="Password"
+            name="password"
+            type="password"
+            placeholder="Password"
+            handleChange={handleChange}
+          />
+          <Button>Log in</Button>
+        </div>
+      </Modal>
+    </Overlay>
   );
 }
 

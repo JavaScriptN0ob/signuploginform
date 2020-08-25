@@ -2,11 +2,14 @@ import React from 'react';
 
 import styles from './Button.module.scss';
 
-const Button = ({children, ...otherProps}) => {
+const Button = ({children, handleSubmit, ...otherProps}) => {
   return (
-    <div className={styles.button}>
+    <button
+      className={styles.button}
+      onSubmit={handleSubmit}
+    >
       {children}
-    </div>
+    </button>
   );
 }
 
