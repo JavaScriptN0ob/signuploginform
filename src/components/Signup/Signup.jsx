@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// import { withRouter } from 'react-router-dom';
 import { auth } from './../../firebase/firebase.utils';
 
 import styles from './Signup.module.scss';
@@ -9,7 +8,7 @@ import FormInput from './../FormInput';
 import Button from './../Button';
 import Overlay from './../Overlay';
 
-const Signup = ({ props }) => {
+const Signup = () => {
   const [userCredentials, setUserCredentials] = useState({
     email: '',
     password: '',

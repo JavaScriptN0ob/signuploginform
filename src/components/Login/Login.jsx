@@ -55,7 +55,6 @@ const Login = () => {
             placeholder="Password"
             handleChange={handleChange}
           />
-          {/* <button onClick={signInWithGoogle}>Google</button> */}
           <Button handleSubmit={onLoginWithEmail}>Log in</Button>
           <div className={styles.seperator}>or log in with</div>
           <Button handleSubmit={onLoginWithGoogle} isGoogle>Google</Button>
