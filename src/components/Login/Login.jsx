@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { signInWithGoogle, auth } from './../../firebase/firebase.utils';
 
 import styles from './Login.module.scss';
 
@@ -17,8 +18,14 @@ const Login = () => {
     const {name, value} = e.target;
     setForm({
       ...form,
-      [name]: value
+      [name]: value,
     });
+  }
+
+  const onLogin = (e) => {
+    e.preventDefault();
+    const {email, password} = form;
+    auth.signInWithEmailAndPassword(email, password);
   }
 
   useEffect(() => {
@@ -43,7 +50,8 @@ const Login = () => {
             placeholder="Password"
             handleChange={handleChange}
           />
-          <Button>Log in</Button>
+          {/* <button onClick={signInWithGoogle}>Google</button> */}
+          <Button handleSubmit={onLogin}>Log in</Button>
         </div>
       </Modal>
     </Overlay>

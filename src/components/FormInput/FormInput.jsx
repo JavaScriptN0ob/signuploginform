@@ -18,6 +18,7 @@ const FormInput = ({label, name, type, placeholder, handleChange, isError, error
         type={type}
         placeholder={placeholder}
         onChange={handleChange}
+        autoComplete="off"
         {...otherProps}
       />
       {

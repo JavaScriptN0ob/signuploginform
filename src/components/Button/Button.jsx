@@ -6,7 +6,7 @@ const Button = ({children, handleSubmit, ...otherProps}) => {
   return (
     <button
       className={styles.button}
-      onSubmit={handleSubmit}
+      onClick={handleSubmit}
     >
       {children}
     </button>

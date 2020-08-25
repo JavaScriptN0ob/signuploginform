@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import fire from './../../config/fire';
+// import { withRouter } from 'react-router-dom';
+import { auth } from './../../firebase/firebase.utils';
 
 import styles from './Signup.module.scss';
 
@@ -8,7 +9,7 @@ import FormInput from './../FormInput';
 import Button from './../Button';
 import Overlay from './../Overlay';
 
-const Signup = () => {
+const Signup = ({ props }) => {
   const [userCredentials, setUserCredentials] = useState({
     email: '',
     password: '',
@@ -23,11 +24,10 @@ const Signup = () => {
     });
   }
 
-  const handleSubmit = (e) => {
-    // e.preventDefault();
+  const onSignUp = async (e) => {
+    e.preventDefault();
     const {email, password} = userCredentials;
-    fire.auth().createUserWithEmailAndPassword({email, password})
-    .then((u) => {})
+    auth.createUserWithEmailAndPassword(email, password)
     .then((u) => {console.log(u)})
     .catch((error) => {
       console.log(error);
@@ -35,7 +35,7 @@ const Signup = () => {
   }
 
   useEffect(() => {
-    console.log(userCredentials)
+    console.log(userCredentials);
   }, [userCredentials]);
 
   return (
@@ -69,7 +69,7 @@ const Signup = () => {
             value={userCredentials.confirmPassword}
             handleChange={handleChange}
           />
-          <Button type="submit" handleSubmit={handleSubmit}>Sign up</Button>
+          <Button type="submit" handleSubmit={onSignUp}>Sign up</Button>
         </form>
       </Modal>
     </Overlay>

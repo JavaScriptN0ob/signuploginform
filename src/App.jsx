@@ -1,44 +1,44 @@
 import React, { useState, useEffect  } from 'react';
-import fire from './config/fire';
-// import app from 'firebase/app';
+// import { withRouter } from 'react-router-dom';
 
+import { auth } from './firebase/firebase.utils';
 
-import logo from './logo.svg';
-import './App.css';
-
-// import Login from './components/Login';
+import Login from './components/Login';
 import Signup from './components/Signup';
 import Home from './components/Home';
 
 const App = () => {
-  const [user, setUser] = useState({
-    user: null,
+  const [currentUser, setCurrentUser] = useState({
+    email: '',
   });
 
-  // const authListener = () => {
-  //   fire.auth().onAuthStateChanged((user) => {
-  //     console.log(user);
-  //     if (!user) {
-  //       setUser({
-  //         user: null
-  //       });
-  //     }
-  //     setUser({user});
-  //   })
-  // }
+  const authListener = () => {
+    auth.onAuthStateChanged((user) => {
+      console.log(user);
+      if (!user) {
+        setCurrentUser({
+          email: '',
+        });
+      }
+      setCurrentUser({
+        email: user.email,
+      });
+      console.log(currentUser);
+    })
+  }
 
-  // useEffect(() => {
-  //   authListener();
-  // }, [user]);
+  useEffect(() => {
+    authListener();
+  }, []);
+
+  const userEmail = currentUser.email;
 
   return (
     <div className="App">
-      <div className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Signup />
-      </div>
+      {/* <Login /> */}
+      <Signup />
         {/* {
-          user ? <Home /> : <Signup />
+          currentUser ? <Home userEmail={userEmail} /> : <Login />
         } */}
     </div>
   );
